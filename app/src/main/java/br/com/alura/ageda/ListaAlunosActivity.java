@@ -28,6 +28,14 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         listaAlunos = (ListView) findViewById(R.id.lista_alunos);
 
+        listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View item, int position, long id) {
+                Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(position);
+                Toast.makeText(ListaAlunosActivity.this, "Aluno " +aluno.getNome()+" clicado!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         Button novoAluno = findViewById(R.id.novo_aluno);
 
         registerForContextMenu(listaAlunos);
