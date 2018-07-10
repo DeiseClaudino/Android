@@ -26,9 +26,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
 
+        listaAlunos = (ListView) findViewById(R.id.lista_alunos);
 
         Button novoAluno = findViewById(R.id.novo_aluno);
-        ListView listaAlunos = findViewById(R.id.lista_alunos);
 
         registerForContextMenu(listaAlunos);
 
@@ -67,8 +67,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(info.position);
                 AlunoDao dao = new AlunoDao(ListaAlunosActivity.this);
                 dao.deleta(aluno);
-                Toast.makeText(ListaAlunosActivity.this, "Deletar o aluno "+aluno.getNome(), Toast.LENGTH_SHORT).show();
+                dao.close();
 
+                carregaLista();
                 return false;
 
             }
