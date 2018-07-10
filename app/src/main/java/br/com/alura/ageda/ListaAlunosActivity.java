@@ -30,9 +30,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View item, int position, long id) {
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
                 Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(position);
-                Toast.makeText(ListaAlunosActivity.this, "Aluno " +aluno.getNome()+" clicado!", Toast.LENGTH_SHORT).show();
             }
         });
 
