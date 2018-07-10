@@ -66,4 +66,7 @@ public class AlunoDao extends SQLiteOpenHelper {
 
         return alunos;
     }
+
+    public void deleta(Aluno aluno) {
+    }
 }
