@@ -81,6 +81,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
         intentSMS.setData(Uri.parse("sms: "+ aluno.getTelefone()));
         itemSMS.setIntent(intentSMS);
 
+        MenuItem itemMapa = menu.add("Visualizar no mapa");
+        Intent intentMapa = new Intent(Intent.ACTION_VIEW);
+
+        itemMapa.setIntent(intentMapa);
+        intentMapa.setData(Uri.parse("geo:0,0?q=" + aluno.getEndereco()));
 
         MenuItem itemSite = menu.add("Visitar o site");
         Intent intentSite = new Intent(Intent.ACTION_VIEW);
