@@ -75,6 +75,13 @@ public class ListaAlunosActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
         final Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(info.position);
 
+        MenuItem itemSMS = menu.add("Enviar SMS");
+        Intent intentSMS = new Intent(Intent.ACTION_VIEW);
+
+        intentSMS.setData(Uri.parse("sms: "+ aluno.getTelefone()));
+        itemSMS.setIntent(intentSMS);
+
+
         MenuItem itemSite = menu.add("Visitar o site");
         Intent intentSite = new Intent(Intent.ACTION_VIEW);
 
