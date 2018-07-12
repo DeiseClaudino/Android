@@ -92,7 +92,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                     Intent intentLigar = new Intent(Intent.ACTION_CALL);
                     intentLigar.setData(Uri.parse("tel:" + aluno.getTelefone()));
                     startActivity(intentLigar);
-                   
+
                 }
                 return false;
             }
