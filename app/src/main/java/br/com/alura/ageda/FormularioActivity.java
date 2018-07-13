@@ -43,14 +43,14 @@ public class FormularioActivity extends AppCompatActivity {
             helper.preencheFormulario(aluno);
         }
 
-        Button btnFoto = (Button) findViewById(R.id.formulario_botao);
-        btnFoto.setOnClickListener(new View.OnClickListener() {
+        Button botaoFoto = findViewById(R.id.formulario_botao);
+        botaoFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 caminhoFoto = getExternalFilesDir(null) + "/" + System.currentTimeMillis() + ".jpg";
                 File arquivoFoto = new File(caminhoFoto);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(arquivoFoto));
+                intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(arquivoFoto));
                 startActivityForResult(intentCamera, CODIGO_CAMERA);
             }
         });
