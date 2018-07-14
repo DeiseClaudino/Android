@@ -20,16 +20,37 @@ public class AlunoDao extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sql = "CREATE TABLE alunos (id INTEGER PRIMARY KEY, nome TEXT NOT NULL, endereco TEXT,  telefone TEXT, site TEXT, nota REAL)";
+        String sql = "CREATE TABLE alunos (id INTEGER PRIMARY KEY," +
+                " nome TEXT NOT NULL," +
+                " endereco TEXT, " +
+                " telefone TEXT," +
+                " site TEXT," +
+                " nota REAL," +
+                "caminhoFoto TEXT)";
         db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        String sql = "DROP TABLE IF EXISTS alunos";
-        db.execSQL(sql);
-        onCreate(db);
+        String sql = "";
+        switch (oldVersion) {
+
+            case 1:
+
+                sql = "ALTER TABLE alunos ADD COLUMN caminhoFoto TEXT";
+                db.execSQL(sql);
+                break;
+
+            case 2:
+
+                sql = "ALTER TABLE alunos ADD COLUMN cpf TEXT";
+                db.execSQL(sql);
+                break;
+
+
+        }
+
     }
 
     public void insere(Aluno aluno) {
