@@ -1,5 +1,7 @@
 package br.com.alura.ageda;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,7 +39,7 @@ public class FormularioHelper {
         aluno.setTelefone(campoTelefone.getText().toString());
         aluno.setSite(campoSite.getText().toString());
         aluno.setNota((double) campoNota.getProgress());
-        aluno.setCaminhoFoto(campoFoto);
+        aluno.setCaminhoFoto((String) campoFoto.getTag());
 
         return aluno;
     }
@@ -49,8 +51,18 @@ public class FormularioHelper {
         campoTelefone.setText(aluno.getTelefone());
         campoSite.setText(aluno.getSite());
         campoNota.setProgress(aluno.getNota().intValue());
+        campoFoto.setTag(aluno.getCaminhoFoto());
 
         this.aluno = aluno;
 
+    }
+
+    public void carregaImagem(String caminhoFoto) {
+        ImageView foto = (ImageView) findViewById(R.id.formulario_foto);
+        Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
+        Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 300, 300, true);
+        foto.setImageBitmap(bitmapReduzido);
+        foto.setScaleType(ImageView.ScaleType.FIT_XY);
+        foto.setTag(caminhoFoto);
     }
 }
