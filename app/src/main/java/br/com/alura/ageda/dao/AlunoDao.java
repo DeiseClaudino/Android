@@ -14,7 +14,7 @@ import br.com.alura.ageda.modelo.Aluno;
 
 public class AlunoDao extends SQLiteOpenHelper {
     public AlunoDao(Context context) {
-        super(context, "Ageda", null, 1);
+        super(context, "Ageda", null, 2);
     }
 
     @Override
@@ -42,14 +42,7 @@ public class AlunoDao extends SQLiteOpenHelper {
                 db.execSQL(sql);
                 break;
 
-            case 2:
-
-                sql = "ALTER TABLE alunos ADD COLUMN cpf TEXT";
-                db.execSQL(sql);
-                break;
-
-
-        }
+         }
 
     }
 
@@ -69,6 +62,7 @@ public class AlunoDao extends SQLiteOpenHelper {
         dados.put("telefone", aluno.getTelefone());
         dados.put("site", aluno.getSite());
         dados.put("nota", aluno.getNota());
+        dados.put("caminhoFoto", aluno.getCaminhoFoto());
         return dados;
     }
 
@@ -87,6 +81,7 @@ public class AlunoDao extends SQLiteOpenHelper {
             aluno.setTelefone(c.getString(c.getColumnIndex("telefone")));
             aluno.setSite(c.getString(c.getColumnIndex("site")));
             aluno.setNota(c.getDouble(c.getColumnIndex("nota")));
+            aluno.setCaminhoFoto(c.getString(c.getColumnIndex("caminhoFoto")));
 
             alunos.add(aluno);
         }
