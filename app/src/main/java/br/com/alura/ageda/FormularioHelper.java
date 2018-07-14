@@ -1,11 +1,14 @@
 package br.com.alura.ageda;
 
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import br.com.alura.ageda.modelo.Aluno;
 
 public class FormularioHelper {
 
+    private final ImageView campoFoto;
     private EditText campoNome;
     private EditText campoEndereco;
     private EditText campoTelefone;
@@ -21,6 +24,7 @@ public class FormularioHelper {
         campoTelefone = activity.findViewById(R.id.formulario_telefone);
         campoSite = activity.findViewById(R.id.formulario_site);
         campoNota = activity.findViewById(R.id.formulario_nota);
+        campoFoto = activity.findViewById(R.id.formulario_foto);
         aluno = new Aluno();
 
     }
@@ -33,6 +37,7 @@ public class FormularioHelper {
         aluno.setTelefone(campoTelefone.getText().toString());
         aluno.setSite(campoSite.getText().toString());
         aluno.setNota((double) campoNota.getProgress());
+        aluno.setCaminhoFoto(campoFoto);
 
         return aluno;
     }
