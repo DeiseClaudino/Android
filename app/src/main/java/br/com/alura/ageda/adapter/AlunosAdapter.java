@@ -48,6 +48,9 @@ public class AlunosAdapter extends BaseAdapter{
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View view = inflater.inflate(R.layout.list_item, null);
+        
+        TextView campoNome = (TextView) view.findViewById(R.id.item_nome);
+        campoNome.setText(aluno.getNome());
 
         return view;
     }
