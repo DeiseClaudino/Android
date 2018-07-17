@@ -31,18 +31,19 @@ public class AlunosAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return alunos.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return alunos.get(position).getId();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView view = new TextView(context);
-        view.setText("Item da posição" + position);
+        Aluno aluno = alunos.get(position);
+        view.setText(aluno.toString());
         return view;
     }
 
