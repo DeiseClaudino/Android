@@ -49,8 +49,11 @@ public class AlunosAdapter extends BaseAdapter{
         Aluno aluno = alunos.get(position);
 
         LayoutInflater inflater = LayoutInflater.from(context);
+        View view = convertView;
+        if (convertView == null) {
 
-        View view = inflater.inflate(R.layout.list_item, null);
+            view = inflater.inflate(R.layout.list_item, parent, false);
+        }
         
         TextView campoNome = (TextView) view.findViewById(R.id.item_nome);
         campoNome.setText(aluno.getNome());
