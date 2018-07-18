@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
 
+import br.com.alura.ageda.dao.AlunoDao;
+
 public class SMSReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -16,7 +18,13 @@ public class SMSReceiver extends BroadcastReceiver {
 
         SmsMessage sms = SmsMessage.createFromPdu(pdu, formato);
 
-        String telefone = sms.getPhone();
-        Toast.makeText(context, "Chegou um SMS!", Toast.LENGTH_SHORT).show();
+        String telefone = sms.getDisplayOriginatingAddress();
+
+        AlunoDao dao = new AlunoDao(context);
+
+        if (dao.ehAluno(telefone)) {
+            Toast.makeText(context, "Chegou um SMS!", Toast.LENGTH_SHORT).show();
+        }
+        dao.close();
     }
 }
