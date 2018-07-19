@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,8 @@ import java.util.List;
 import br.com.alura.ageda.adapter.AlunosAdapter;
 import br.com.alura.ageda.dao.AlunoDao;
 import br.com.alura.ageda.modelo.Aluno;
+
+import static br.com.alura.ageda.R.menu.menu_lista_alunos;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -66,6 +69,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_lista_alunos, menu);
+
+        return true;
+    }
 
     @Override
     protected void onResume() {
