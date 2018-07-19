@@ -90,7 +90,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
 
 
-                Toast.makeText(this,"Enviando notas...", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, json, Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onOptionsItemSelected(item);

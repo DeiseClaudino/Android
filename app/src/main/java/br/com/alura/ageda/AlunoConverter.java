@@ -11,10 +11,16 @@ class AlunoConverter {
     public String converteParaJson(List<Aluno> alunos) {
         JSONStringer js = new JSONStringer();
         try {
-            js.object().key("list").array().object().key("aluno").array();
+            for (Aluno aluno : alunos) {
+                js.object();
+                js.key("nome").value(aluno.getNome());
+                js.key("nota").value(aluno.getNota());
+                js.endObject();
+            }
+            js.endArray().endObject().endArray().endObject();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+        return js.toString();
     }
 }
