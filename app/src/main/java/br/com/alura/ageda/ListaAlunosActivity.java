@@ -93,11 +93,20 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 AlunoConverter conversor = new AlunoConverter();
                 String json = conversor.converteParaJson(alunos);
 
-                WebClient client = new WebClient();
-                String resposta = client.post(json);
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        WebClient client = new WebClient();
+                        String resposta = client.post(json);
 
 
-                Toast.makeText(this, resposta, Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, resposta, Toast.LENGTH_LONG).show();
+
+
+                    }
+                }).start();
+
                 break;
         }
         return super.onOptionsItemSelected(item);
