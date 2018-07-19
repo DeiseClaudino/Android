@@ -22,10 +22,13 @@ public class WebClient {
             Scanner scanner = new Scanner(connection.getInputStream());
 
             String resposta = scanner.next();
+            return resposta;
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
         }
         return null;
+
     }
 }
