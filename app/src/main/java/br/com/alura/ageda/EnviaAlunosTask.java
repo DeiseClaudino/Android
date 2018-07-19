@@ -10,15 +10,16 @@ import br.com.alura.ageda.converter.AlunoConverter;
 import br.com.alura.ageda.dao.AlunoDao;
 import br.com.alura.ageda.modelo.Aluno;
 
-public class EnviaAlunosTask extends AsyncTask {
+public class EnviaAlunosTask extends AsyncTask<Object , Object, String> {
     private Context context;
 
     public EnviaAlunosTask(Context context) {
         this.context = context;
     }
 
+
     @Override
-    protected Object doInBackground(Object[] objects) {
+    protected Object doInBackground(Object... params) {
 
         AlunoDao dao = new AlunoDao(this);
         List<Aluno> alunos = dao.buscaAlunos();
@@ -34,8 +35,8 @@ public class EnviaAlunosTask extends AsyncTask {
     }
 
     @Override
-    protected void onPostExecute(Object o) {
-    Toast.makeText(context, (String) o, Toast.LENGTH_LONG).show();
+    protected void onPostExecute(String resposta) {
+    Toast.makeText(context, (String) resposta, Toast.LENGTH_LONG).show();
     }
 }
 
