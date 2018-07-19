@@ -13,15 +13,15 @@ import br.com.alura.ageda.modelo.Aluno;
 public class EnviaAlunosTask extends AsyncTask<Object , Object, String> {
     private Context context;
 
+
     public EnviaAlunosTask(Context context) {
         this.context = context;
     }
 
-
     @Override
-    protected Object doInBackground(Object... params) {
+    protected String doInBackground(Object... params) {
 
-        AlunoDao dao = new AlunoDao(this);
+        AlunoDao dao = new AlunoDao(context);
         List<Aluno> alunos = dao.buscaAlunos();
         dao.close();
 
@@ -31,12 +31,13 @@ public class EnviaAlunosTask extends AsyncTask<Object , Object, String> {
         WebClient client = new WebClient();
         String resposta = client.post(json);
 
-        return resposta;
+        return "Envio feito  com sucesso!";
     }
 
     @Override
     protected void onPostExecute(String resposta) {
-    Toast.makeText(context, (String) resposta, Toast.LENGTH_LONG).show();
+
+    Toast.makeText(context, resposta, Toast.LENGTH_LONG).show();
     }
 }
 

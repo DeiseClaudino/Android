@@ -84,10 +84,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_enviar_notas:
                 new EnviaAlunosTask(this).execute();
                 break;
+        }
         return super.onOptionsItemSelected(item);
     }
 
