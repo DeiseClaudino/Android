@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -75,6 +76,26 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_enviar_notas:
+                AlunoDao dao = new AlunoDao(this);
+                List<Aluno> alunos = dao.buscaAlunos();
+                dao.close();
+
+                AlunoConverter conversor = new AlunoConverter();
+                String json = conversor.converteParaJson(alunos);
+
+
+
+                Toast.makeText(this,"Enviando notas...", Toast.LENGTH_LONG).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     protected void onResume() {
