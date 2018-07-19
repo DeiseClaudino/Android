@@ -19,10 +19,9 @@ import android.widget.Toast;
 import java.util.List;
 
 import br.com.alura.ageda.adapter.AlunosAdapter;
+import br.com.alura.ageda.converter.AlunoConverter;
 import br.com.alura.ageda.dao.AlunoDao;
 import br.com.alura.ageda.modelo.Aluno;
-
-import static br.com.alura.ageda.R.menu.menu_lista_alunos;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -69,6 +68,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
         listaAlunos.setAdapter(adapter);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregaLista();
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -96,13 +101,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        carregaLista();
-
-    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
