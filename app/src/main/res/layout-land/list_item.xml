@@ -50,7 +50,8 @@
             android:id="@+id/item_endereco"
             android:text="Endereco"
             android:textSize="24sp"
-            android:paddingTop="8dp"/>
+            android:paddingTop="8dp"
+            android:layout_marginRight="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,6 +59,7 @@
             android:id="@+id/item_site"
             android:text="Site"
             android:textSize="24sp"
-            android:paddingTop="8dp"/>
+            android:paddingTop="8dp"
+            android:layout_marginRight="16dp"/>
     </LinearLayout>
 </LinearLayout>
