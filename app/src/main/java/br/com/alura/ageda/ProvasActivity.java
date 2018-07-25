@@ -38,7 +38,8 @@ public class ProvasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Prova prova = (Prova) parent.getItemAtPosition(position);
                 Toast.makeText(ProvasActivity.this, "Prova de " + prova, Toast.LENGTH_SHORT).show();
-                Intent vaiParaDetalhes = new Intent(ProvasActivity.this, vaiParaDetalhes.putExtra("prova", prova));
+                Intent vaiParaDetalhes = new Intent(ProvasActivity.this, DetalhesProvaActivity.class);
+                vaiParaDetalhes.putExtra("prova", prova);
                 startActivity(vaiParaDetalhes);
             }
         });
