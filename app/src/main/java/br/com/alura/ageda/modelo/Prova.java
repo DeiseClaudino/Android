@@ -1,4 +1,4 @@
-package br.com.alura.ageda;
+package br.com.alura.ageda.modelo;
 
 import java.util.List;
 

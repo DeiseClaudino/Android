@@ -11,6 +11,8 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.alura.ageda.modelo.Prova;
+
 public class ProvasActivity extends AppCompatActivity {
 
     @Override
