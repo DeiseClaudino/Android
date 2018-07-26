@@ -90,7 +90,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_baixar_provas:
-                Intent vaiParaProvas = new Intent(this, ProvasTabletActivity.class);
+                Intent vaiParaProvas = new Intent(this, ProvasActivity.class);
                 startActivity(vaiParaProvas);
                 break;
         }
