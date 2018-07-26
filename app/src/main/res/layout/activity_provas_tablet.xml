@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <include layout="@layout/activity_provas"
+    <include layout="@layout/fragment_lista_provas"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
