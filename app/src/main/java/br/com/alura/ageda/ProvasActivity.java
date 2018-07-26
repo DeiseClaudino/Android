@@ -39,7 +39,7 @@ public class ProvasActivity extends AppCompatActivity {
     }
 
     private boolean estaNoModoPaisagem () {
-        return  getResources().getBoolean(R.bool.modoPaisagem);
+        return getResources().getBoolean(R.bool.modoPaisagem);
     }
 
 
