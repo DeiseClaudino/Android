@@ -36,11 +36,11 @@ public class ProvasActivity extends AppCompatActivity {
         }
 
         tx.commit();
-
     }
 
-    private boolean estaNoModoPaisagem() {
-        getResources().getBoolean(R.bool.modoPaisagem);
+    private boolean estaNoModoPaisagem () {
+        return  getResources().getBoolean(R.bool.modoPaisagem);
     }
+
 
 }
