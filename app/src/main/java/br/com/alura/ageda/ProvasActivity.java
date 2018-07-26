@@ -26,6 +26,7 @@ public class ProvasActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction tx = fragmentManager.beginTransaction();
         tx.replace(R.id.frame_principal, new ListaProvasFragment());
+        tx.replace(R.id.frame_secundario, new DetalhesProvaFragment());
         tx.commit();
 
 
