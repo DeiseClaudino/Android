@@ -45,8 +45,6 @@ public class ListaProvasFragment extends Fragment{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Prova prova = (Prova) parent.getItemAtPosition(position);
                 Toast.makeText(getContext(), "Prova de " + prova, Toast.LENGTH_SHORT).show();
-                Intent vaiParaDetalhes = new Intent(getContext(), DetalhesProvaActivity.class);
-                vaiParaDetalhes.putExtra("prova", prova);
 
                 ProvasActivity provasActivity = (ProvasActivity) getActivity();
                 provasActivity.selecionaProva(prova);

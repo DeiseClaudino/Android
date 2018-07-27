@@ -26,9 +26,9 @@ public class DetalhesProvaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_detalhes_prova, container, false);
 
-        campoMateria = (TextView) view.findViewById(R.id.detalhes_prova_materia);
-        campoData = (TextView) view.findViewById(R.id.detalhes_prova_data);
-        listaTopicos = (ListView) view.findViewById(R.id.detalhes_prova_topicos);
+        campoMateria = view.findViewById(R.id.detalhes_prova_materia);
+        campoData =  view.findViewById(R.id.detalhes_prova_data);
+        listaTopicos =  view.findViewById(R.id.detalhes_prova_topicos);
 
         Bundle parametros = getArguments();
         if (parametros != null) {

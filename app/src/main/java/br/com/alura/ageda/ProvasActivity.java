@@ -47,17 +47,23 @@ public class ProvasActivity extends AppCompatActivity {
 
         FragmentManager manager = getSupportFragmentManager();
 
+
         if (!estaNoModoPaisagem()) {
+
+            FragmentTransaction tx = manager.beginTransaction();
+
             DetalhesProvaFragment detalhesFragment = new DetalhesProvaFragment();
+
             Bundle parametros = new Bundle();
             parametros.putSerializable("prova", prova);
             detalhesFragment.setArguments(parametros);
 
-            FragmentTransaction tx = manager.beginTransaction();
-            tx.replace(R.id.frame_principal, new DetalhesProvaFragment());
+            tx.replace(R.id.frame_principal, detalhesFragment);
             tx.commit();
+
         }else {
-            manager.findFragmentById(R.id.frame_secundario);
+           DetalhesProvaFragment detalhesFragment = (DetalhesProvaFragment) manager.findFragmentById(R.id.frame_secundario);
+           detalhesFragment.populaCamposCom(prova);
         }
     }
 }
