@@ -1,6 +1,5 @@
 package br.com.alura.ageda;
 
-
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
@@ -17,15 +16,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Localizador implements GoogleApiClient.ConnectionCallbacks, LocationListener {
 
+    private final GoogleApiClient client;
     private final GoogleMap mapa;
-    private GoogleApiClient.Builder client;
 
     public Localizador(Context context, GoogleMap mapa) {
-
-        client = new GoogleApiClient.Builder(context).addApi(LocationServices.API).addConnectionCallbacks(this);
-
+        client = new GoogleApiClient.Builder(context)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .build();
 
         client.connect();
+
         this.mapa = mapa;
     }
 
@@ -35,12 +36,13 @@ public class Localizador implements GoogleApiClient.ConnectionCallbacks, Locatio
         request.setSmallestDisplacement(50);
         request.setInterval(1000);
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        LocationServices.FusedLocationApi.requestLocationUpdates(client, request, this);
 
+        LocationServices.FusedLocationApi.requestLocationUpdates(client, request, this);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
+
     }
 
     @Override
@@ -48,20 +50,5 @@ public class Localizador implements GoogleApiClient.ConnectionCallbacks, Locatio
         LatLng coordenada = new LatLng(location.getLatitude(), location.getLongitude());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(coordenada);
         mapa.moveCamera(cameraUpdate);
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
     }
 }
