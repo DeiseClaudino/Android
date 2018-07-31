@@ -48,9 +48,13 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
                 marcador.title(aluno.getNome());
                 marcador.snippet(String.valueOf(aluno.getNota()));
                 googleMap.addMarker(marcador);
+
             }
+
         }
         alunoDao.close();
+
+        new Localizador(getContext(), googleMap);
 
     }
 
